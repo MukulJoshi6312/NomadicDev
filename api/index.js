@@ -20,18 +20,18 @@ app.use(cookieParser());
 app.use(express.json())
 
 
-// app.use(cors({
-//   origin: process.env.FRONTEND_URL, 
-//   credentials: true,
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-
-// }));
 app.use(cors({
-  origin: 'https://nomadic-dev.vercel.app', 
+  origin: process.env.FRONTEND_URL, 
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
 
 }));
+// app.use(cors({
+//   origin: 'https://nomadic-dev.vercel.app', 
+//   credentials: true,
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+
+// }));
 
 // route setup // auth
 app.use("/api/auth",AuthRoute)
