@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const authenticate = async (req, res, next) => {
+export const onlyadmin = async (req, res, next) => {
   try {
     const token = req.cookies.access_token;
     if (!token) {
