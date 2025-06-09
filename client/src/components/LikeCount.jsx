@@ -18,7 +18,7 @@ const LikeCount = ({props}) => {
       const {data:blogLikeCount,loading,error} = useFetch(url,
         {
             method:"get",
-            credentials:"include",
+            credentials:"include" ,
         }
       )
 
