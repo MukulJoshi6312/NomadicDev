@@ -65,10 +65,16 @@ export const Login = async (req,res,next)=>{
 
 
 
+        // res.cookie("access_token",token,{
+        //     httpOnly:true,
+        //     secure:process.env.NODE_ENV==="production",
+        //     sameSite:process.env.NODE_ENV==="production" ? "none" :"strict",
+        //     path:"/"
+        // })
         res.cookie("access_token",token,{
             httpOnly:true,
-            secure:process.env.NODE_ENV==="production",
-            sameSite:process.env.NODE_ENV==="production" ? "none" :"strict",
+            secure:true,
+            sameSite:"none",
             path:"/"
         })
 

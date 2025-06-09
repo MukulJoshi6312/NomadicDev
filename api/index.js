@@ -17,6 +17,15 @@ const PORT = process.env.PORT || 3000
 const app = express();
 
 
+// const corsOptions = {
+//   origin: 'https://nomadic-dev.vercel.app',
+//   credentials: true,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   optionsSuccessStatus: 200,
+// };
+
+// app.use(cors(corsOptions));
 const corsOptions = {
   origin: 'https://nomadic-dev.vercel.app',
   credentials: true,
@@ -32,12 +41,14 @@ app.use(cookieParser());
 app.use(express.json())
 
 
+// console.log(process.env.FRONTEND_URL)
 // app.use(cors({
 //   origin: process.env.FRONTEND_URL, 
 //   credentials: true,
 //   allowedHeaders: ['Content-Type', 'Authorization'],
 
 // }));
+
 // // app.use(cors({
 // //   origin: 'https://nomadic-dev.vercel.app', 
 // //   credentials: true,
