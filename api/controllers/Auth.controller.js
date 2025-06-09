@@ -121,8 +121,8 @@ export const GoogleLogin = async (req,res,next)=>{
 
         res.cookie("access_token",token,{
             httpOnly:true,
-            secure:process.env.NODE_ENV==="production",
-            sameSite:process.env.NODE_ENV==="production" ? "none" :"strict",
+            secure:true,
+            sameSite:"none",
             path:"/"
         })
 
@@ -145,10 +145,10 @@ export const GoogleLogin = async (req,res,next)=>{
 export const Logout = async (req,res,next)=>{
 
     try{
-        res.clearCookie("access_token",{
+        res.cookie("access_token",token,{
             httpOnly:true,
-            secure:process.env.NODE_ENV==="production",
-            sameSite:process.env.NODE_ENV==="production" ? "none" :"strict",
+            secure:true,
+            sameSite:"none",
             path:"/"
         })
         
