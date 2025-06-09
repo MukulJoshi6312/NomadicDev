@@ -57,7 +57,6 @@ export const getAllComments = async (req,res,next)=>{
         let comments;
         if(user.role=== 'admin'){
         comments = await Comment.find({}).populate('blogId','title').populate('user','name').lean().exec();
-
         }else{
         comments = await Comment.find({user:user._id}).populate('blogId','title').populate('user','name').lean().exec();
         }
