@@ -4,7 +4,7 @@ import { authenticate } from "../middleware/authenticate.js";
 
 const CommentRoute = express.Router();
 
-CommentRoute.post("/comment", addComment)
+CommentRoute.post("/comment", authenticate, addComment)
 CommentRoute.get("/get/:blogId", getComments)
 CommentRoute.get("/get-count/:blogId", commentCount)
 CommentRoute.get("/get-all-comment",authenticate,getAllComments)

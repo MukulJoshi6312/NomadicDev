@@ -4,7 +4,7 @@ import { authenticate } from "../middleware/authenticate.js";
 
 const BlogLikeRoute = express.Router();
 
-BlogLikeRoute.post("/do-like", doLike)
+BlogLikeRoute.post("/do-like",authenticate, doLike)
 BlogLikeRoute.get("/get-like/:blogId/:userId", likeCount)
 
 export default BlogLikeRoute
