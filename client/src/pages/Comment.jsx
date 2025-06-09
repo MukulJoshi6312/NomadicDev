@@ -29,7 +29,7 @@ const Comment = () => {
     const url = `${getEnv('VITE_API_BASE_URL')}/blog/get-all-comment`;
     const {data,loading,error} = useFetch(url,
         {
-            method:"get",
+            method:"GET",
             credentials:"include"
         },[refreshData]
     )

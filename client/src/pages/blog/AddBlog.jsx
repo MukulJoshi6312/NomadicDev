@@ -44,7 +44,7 @@ const AddBlog = () => {
     loading,
     error,
   } = useFetch(url, {
-    method: "get",
+    method: "GET",
     credentials: "include",
   });
 
