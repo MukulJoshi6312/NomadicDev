@@ -1,20 +1,21 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
-export const onlyadmin = async (req, res, next) => {
+
+export const authenticate = async (req, res, next) => {
   try {
-    const  token  = req.cookies.access_token;
+    const token = req.cookies.access_token;
     if (!token) {
-      return next(403, "Unauthorized");
+      const error = new Error("Unauthorized");
+      error.statusCode = 403;
+      return next(error);
     }
-    const decodeToken = jwt.verify(token, process.env.JWT_SECRET);
-    if (decodeToken.role === "admin") {
-      req.user = decodeToken;
-      next();
-    } else {
-      return next(403, "Unauthorized");
-    }
+
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decodedToken;
+    next();
   } catch (error) {
-    next(500, error.message);
+    error.statusCode = 500;
+    next(error);
   }
 };

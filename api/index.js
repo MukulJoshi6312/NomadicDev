@@ -72,15 +72,13 @@ app.get("/",(req,res)=>{
     )
 })
 
-app.use((err,req,res,next)=>{
-    const statusCode = err.statusCode || 500;
-    const message = err.message || "Internal server error"
-    res.status(statusCode).json({
-        success:false,
-        statusCode,
-        message,
-    })
-})
-
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(err.statusCode || 500).json({
+    success: false,
+    statusCode: err.statusCode || 500,
+    message: err.message || 'Internal Server Error',
+  });
+});
 
  
