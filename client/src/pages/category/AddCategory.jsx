@@ -35,7 +35,6 @@ const AddCategory = () => {
     });
   
     async function onSubmit(values) {
-      console.log("Add category ",values)
       try{
                const response = await fetch(`${getEnv('VITE_API_BASE_URL')}/category/add`,{
                  method:"POST",
@@ -46,17 +45,16 @@ const AddCategory = () => {
                const data = await resposnse.json();
                if(!response.ok){
                    showToast("error", data.message);
-                   return; // ⛔️ stop execution if error
+                   return; 
                }
-              //  console.log("Parsed Data", data); // ✅ Actual useful response
                showToast("success", data.message);
-              //  dispatch(setUser(data.user))
+              
                setTimeout(() => navigate(RouteCategoryDetails), 1500);
               form.reset();
              }catch(error){
              showToast("error", error.message || "Something went wrong");
              }
-      console.log(values);
+      
     }
 
    const categoryName = form.watch("name");

@@ -95,11 +95,9 @@ const AddBlog = () => {
         return;
       }
       if (response.status === 204) {
-        console.log("No changes made.");
         return; 
       }
-      // console.log("Parsed Data", data);
-      // dispatch(setUser(data.user));
+    
       form.reset();
       setFile()
       setFilePreview()
@@ -112,7 +110,6 @@ const AddBlog = () => {
   }
 
   const handleFileSelection = (files) => {
-    // console.log(files)
     const file = files[0];
     const preview = URL.createObjectURL(file);
     setFile(file);

@@ -54,7 +54,6 @@ export const commentCount = async (req,res,next)=>{
 export const getAllComments = async (req,res,next)=>{
       try{
         const user = req.user;
-        console.log('get all comment user ',user);
         let comments;
         if(user.role=== 'admin'){
         comments = await Comment.find({}).populate('blogId','title').populate('user','name').lean().exec();
@@ -75,7 +74,6 @@ export const getAllComments = async (req,res,next)=>{
 export const deleteComments = async (req,res,next)=>{
       try{
         const {commentId} = req.params;
-        console.log("Comment id ",commentId)
         await Comment.findByIdAndDelete(commentId);
         res.status(200).json({
             success:true,

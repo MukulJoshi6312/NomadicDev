@@ -41,10 +41,8 @@ const CategoryDetail = () => {
         }else{
             showToast('error',"Data not deleted")
         }
-        console.log("detele category response ",response)
     }
 
-    console.log("category data ",categoryData)
     if(loading) return <Loading/>
   return (
     <div>

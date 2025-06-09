@@ -28,9 +28,6 @@ export const getUser = async (req,res,next)=>{
 
 export const updateUser = async (req, res, next) => {
   try {
-    // console.log("Uploaded file:", req.file); // ✅ Now this will not be undefined
-    // console.log("Form data:", req.body.data); // values will be JSON string
-
     const data = JSON.parse(req.body.data);
 
     const {userId} = req.params;

@@ -37,7 +37,6 @@ const Users = () => {
     )
 
     const handleDelete = async(id)=>{
-        console.log("user ki id frontend ",id)
         const response = await deleteData(`${getEnv('VITE_API_BASE_URL')}/user/delete/${id}`)
         if(response){
             setRefreshData(!refreshData);

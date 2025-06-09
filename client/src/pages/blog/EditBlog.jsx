@@ -40,7 +40,6 @@ const Edit = () => {
   const {user} = useSelector((state)=>state.user)
   const {blogId} = useParams()
 
-  console.log("user kon hai ",user.user._id)
   const navigate = useNavigate();
   const [filePreview, setFilePreview] = useState();
   const [file, setFile] = useState();
@@ -61,7 +60,6 @@ const Edit = () => {
   },[blogId]
   )
 
-  console.log(blogData)
 
   const formSchema = z.object({
     category: z.string().min(3, "Category must be at least 3 character long."),
@@ -108,11 +106,9 @@ const Edit = () => {
         return;
       }
       if (response.status === 204) {
-        console.log("No changes made.");
         return; 
       }
-      // console.log("Parsed Data", data);
-      // dispatch(setUser(data.user));
+      
       form.reset();
       setFile()
       setFilePreview()
@@ -125,7 +121,6 @@ const Edit = () => {
   }
 
   const handleFileSelection = (files) => {
-    // console.log(files)
     const file = files[0];
     const preview = URL.createObjectURL(file);
     setFile(file);
@@ -248,8 +243,6 @@ const Edit = () => {
                 name="blogContent"
                 render={({ field }) => (
                   <>
-{                  console.log("Kya hai field value m ",field.value)
-}
                     <Editor props={{initialData: decode(field.value), onChange: handleEditorData }} />
 
                   </>

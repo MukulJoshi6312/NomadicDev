@@ -35,7 +35,6 @@ const Comment = () => {
     )
 
     const handleDelete = async(id)=>{
-        console.log("Comment id in handle delete ",id)
         const response = await deleteData(`${getEnv('VITE_API_BASE_URL')}/blog/commentDelete/${id}`)
         if(response){
             setRefreshData(!refreshData);

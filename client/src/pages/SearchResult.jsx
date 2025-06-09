@@ -17,7 +17,6 @@ const SearchResult = () => {
             },[q]
         )
 
-    console.log("Serach blog data ",blogData)
     
   return (
     <>   

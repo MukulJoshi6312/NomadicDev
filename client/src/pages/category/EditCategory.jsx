@@ -58,16 +58,13 @@ const EditCategory = () => {
                const data = await response.json();
                if(!response.ok){
                    showToast("error", data.message);
-                   return; // ⛔️ stop execution if error
+                   return; 
                }
-              //  console.log("Parsed Data", data); // ✅ Actual useful response
                showToast("success", data.message);
-              //  dispatch(setUser(data.user))
                setTimeout(() => navigate(RouteCategoryDetails), 1500);
              }catch(error){
              showToast("error", error.message || "Something went wrong");
              }
-      console.log(values);
     }
 
     

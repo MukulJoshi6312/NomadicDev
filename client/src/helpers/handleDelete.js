@@ -9,7 +9,6 @@ export const deleteData = async (endpoint)=>{
                 }
             );
             const data = await response.json();
-            console.log("data ",data)
             if(!response.ok){
                 throw new Error(response.statusText);
             }
