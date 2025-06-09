@@ -17,33 +17,33 @@ const PORT = process.env.PORT || 3000
 const app = express();
 
 
-// const corsOptions = {
-//   origin: 'https://nomadic-dev.vercel.app',
-//   credentials: true,
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-//   optionsSuccessStatus: 200,
-// };
+const corsOptions = {
+  origin: 'https://nomadic-dev.vercel.app',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200,
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 
 app.use(cookieParser());
 app.use(express.json())
 
 
-app.use(cors({
-  origin: process.env.FRONTEND_URL, 
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization'],
-
-}));
 // app.use(cors({
-//   origin: 'https://nomadic-dev.vercel.app', 
+//   origin: process.env.FRONTEND_URL, 
 //   credentials: true,
 //   allowedHeaders: ['Content-Type', 'Authorization'],
 
 // }));
+// // app.use(cors({
+// //   origin: 'https://nomadic-dev.vercel.app', 
+// //   credentials: true,
+// //   allowedHeaders: ['Content-Type', 'Authorization'],
+
+// // }));
 
 // route setup // auth
 app.use("/api/auth",AuthRoute)
