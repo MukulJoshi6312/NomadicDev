@@ -2,15 +2,13 @@ import Loading from '@/components/Loading';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { getEnv } from '@/helpers/getEnv';
 import { useFetch } from '@/hooks/useFetch';
-import { decode } from 'entities';
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import { marked } from 'marked';
 import Comment from '@/components/Comment';
-import CommentList from '@/components/CommentList';
 import dateFormater from '@/helpers/dateFormater';
 import CommentCount from '@/components/CommentCount';
-import LikeCount from '@/components/LIkeCount';
+import LikeCount from '@/components/LikeCount';
 import RelatedBlog from '@/components/RelatedBlog';
 
 
