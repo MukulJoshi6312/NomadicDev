@@ -84,7 +84,7 @@ export const updateUser = async (req, res, next) => {
 export const getAllUsers = async (req,res,next)=>{
   try{
 
-    const users = await User.find().sort({createAt:-1});
+    const users = await User.find().sort({createdAt:-1});
     res.status(200).json({
       success:true,
       message:"get all user data",

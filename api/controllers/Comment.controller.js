@@ -60,7 +60,6 @@ export const getAllComments = async (req,res,next)=>{
 
         }else{
         comments = await Comment.find({user:user._id}).populate('blogId','title').populate('user','name').lean().exec();
-
         }
         res.status(200).json({
             comments
