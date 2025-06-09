@@ -145,7 +145,7 @@ export const GoogleLogin = async (req,res,next)=>{
 export const Logout = async (req,res,next)=>{
 
     try{
-        res.cookie("access_token",token,{
+        res.cookie("access_token",{
             httpOnly:true,
             secure:true,
             sameSite:"none",
