@@ -4,6 +4,7 @@ dotenv.config();
 export const authenticate = async (req, res, next) => {
   try {
     const token = req.cookies.access_token;
+    console.log("Middleware ka code ",token)
     if (!token) {
       const error = new Error('Unauthorized');
       error.statusCode = 403;

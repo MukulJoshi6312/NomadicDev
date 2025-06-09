@@ -5,7 +5,6 @@ import { authenticate } from "../middleware/authenticate.js";
 
 const UserRoute = express.Router();
 
-UserRoute.use(authenticate)
 UserRoute.get("/get-user/:userId", getUser)
 UserRoute.put("/update-user/:userId",upload.single("file"), updateUser)
 UserRoute.get("/get-all-users", getAllUsers)

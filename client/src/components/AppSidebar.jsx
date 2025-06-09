@@ -33,7 +33,7 @@ import { useSelector } from "react-redux";
 const AppSidebar = () => {
   const url = `${getEnv("VITE_API_BASE_URL")}/category/all-category`;
   const { data: categoryData } = useFetch(url, {
-    method: "get",
+    method: "GET",
     credentials: "include",
   });
 
